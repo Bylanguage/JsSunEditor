@@ -1,0 +1,32 @@
+﻿ku JsSunEditorDemo
+{
+    system biao identity.skill "身份技能表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string[] parameters "参数"
+    , string returnType "返回类型"
+    , string body "技能体")
+    {
+        { Startup, main "客户端与服务端入口点", { client, server }, { static }, { string[] args "启动参数" }, void, {
+            scene (client)
+            {
+                //客户端代码主体
+                by.object.Message.alert("系统启动! 当前为库:[" + nameof(JsSunEditorDemo) + "] "+ by.object.System.currentScene + " 端入口点");
+            }
+
+            scene (server)
+            {
+                //请在此处写服务端代码主体
+            }
+        } }
+        { Home, main "网页主技能，重写此技能以实现自定义的网页初始化逻辑", { web }, {  }, { string queryArgs "网页当前参数字符串，即url中?符后面的内容" }, void, {
+            var  tmpSunEdit = new JsSunEditor.object.SunEditor("",false);
+            this.pageWindow.document.body.append( tmpSunEdit.element ); 
+            
+            var tmpMyDialog = new MyDialog();
+            tmpMyDialog.show();
+        } }
+    }
+}

@@ -1,0 +1,16 @@
+﻿ku JsSunEditor
+{
+    system biao object.method "面向对象方法表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string[] parameters "参数"
+    , string returnType "返回类型"
+    , string body "方法体")
+    {
+        { SunEditor, SunEditor "创建编辑器实例, 具有空的内容", {  }, {  }, { string content,bool isSimple }, ,  }
+        { SunEditor, create "创建编辑器具有指定html内容的编辑器实例", {  }, {  }, { string content,bool isSimple  }, SunEditor ,  }
+        { SunEditor, getSelectionIndex "获取选中位置在html内容中的索引", {  }, {  }, {  }, int ,  }
+    }
+}
